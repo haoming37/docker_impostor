@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  impostor:
+    image: aeonlucid/impostor:nightly
+    container_name: impostor
+    env_file:
+      - variables.env
+    ports:
+      - 22023:22023/udp
+    volumes:
+      - ${PWD}/config.json:/app/config.json # For easy editing of the config
+      - ${PWD}/plugins:/app/plugins         # Only needed if using plugins
+      - ${PWD}/libraries:/app/libraries     # Only needed if using external libraries
